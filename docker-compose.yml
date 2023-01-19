@@ -1,0 +1,53 @@
+version: "3.7"
+services:
+  php-api:
+    container_name: php
+    build: 
+      context: "."
+      dockerfile: php.Dockerfile
+    stdin_open: true
+    ports:
+      - "8000:80"
+    tty: true
+    volumes:
+      - "./api:/var/www/html"
+      - "/var/www/html/vendor"
+    networks: 
+      - app_net
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    user: "root"
+  
+  front-nginx-vue:
+    container_name: nginx-vue
+    build: 
+      context: "."
+      dockerfile: vue.Dockerfile
+    tty: true
+    stdin_open: true
+    ports:
+      - "8080:5173"
+    volumes:
+      - "./web:/usr/share/nginx/html"
+      - "/usr/share/nginx/html/node_modules"
+    networks: 
+      - app_net
+
+  # db-mysql:
+  #   image: mysql
+  #   container_name: mysql-container
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   restart: always 
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 321982
+  #     MYSQL_DATABASE: doragonpixel
+  #   ports:
+  #     - "3306:33060"
+  #     - "33060:3306"
+  #   volumes:
+  #     - "./mysql:/var/lib/mysql"
+  #   networks:
+  #     - app_net
+
+networks: 
+  app_net:
