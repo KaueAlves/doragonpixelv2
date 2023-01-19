@@ -1,34 +1,38 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import Home from './components/Home.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="container mb-4 mb-md-0">
+    <div class="row vh-100 d-flex align-items-center">
+      <header class="col-md-6 text-center">
+        <div class="row ">
+          <div class="col-md-8 ms-auto me-auto ">
+            
+            <img alt="Doragon Pixel" class="logo ms-auto me-auto mb-4" src="@/assets/pixel/falando-off-export.gif" width="125" height="125" />
+            <div class="wrapper">
+              <Home msg="Seja bem vindo!" />
+              <nav>
+                <RouterLink to="/">Início</RouterLink>
+                <RouterLink to="/about">Criação</RouterLink>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="col-md-6  d-flex align-items-center">
+        <RouterView />
+      </div>
     </div>
-  </header>
-
-  <RouterView />
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
 }
 
 nav {
@@ -57,22 +61,6 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
   nav {
     text-align: left;
     margin-left: -1rem;

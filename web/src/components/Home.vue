@@ -6,11 +6,9 @@ defineProps<{
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+    <h2 class="roxo">{{ msg }}</h2>
     <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
+      Primeira etapa do projeto é a criação de um gerador de personagens de D&D 5e.
     </h3>
   </div>
 </template>
@@ -27,13 +25,15 @@ h3 {
 }
 
 .greetings h1,
+.greetings h2,
 .greetings h3 {
   text-align: center;
 }
 
 @media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
+.greetings h1,
+.greetings h2,
+.greetings h3 {
     text-align: left;
   }
 }

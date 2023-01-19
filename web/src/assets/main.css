@@ -1,35 +1,50 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
-}
 
 a,
-.green {
+.blue {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: #1477d3;
   transition: 0.4s;
+}
+
+.roxo{
+  color: #8100bd;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: hsla(226, 100%, 37%, 0.2);
+  }
+  .btn:hover{
+    background-color: #8100bd;
+    color: white;
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.bg-default{
+  background: #181818;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.card{
+  border: 1px solid #EBEBEBA3;
+}
+
+input.form-control,select.form-select{
+  background-color: #EBEBEBA3;
+  
+}
+
+select.form-select::after{
+  color: white !important;
+  box-shadow: white;
+}
+
+.form-select:focus{
+  border-color:  white;
+}
+
+.btn{
+  background:#1477d3;
+  color: white;
 }

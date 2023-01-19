@@ -1,22 +1,22 @@
 version: "3.7"
 services:
-  php-api:
-    container_name: php
-    build: 
-      context: "."
-      dockerfile: php.Dockerfile
-    stdin_open: true
-    ports:
-      - "8000:80"
-    tty: true
-    volumes:
-      - "./api:/var/www/html"
-      - "/var/www/html/vendor"
-    networks: 
-      - app_net
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    user: "root"
+  # php-api:
+  #   container_name: php
+  #   build: 
+  #     context: "."
+  #     dockerfile: php.Dockerfile
+  #   stdin_open: true
+  #   ports:
+  #     - "8000:80"
+  #   tty: true
+  #   volumes:
+  #     - "./api:/var/www/html"
+  #     - "/var/www/html/vendor"
+  #   networks: 
+  #     - app_net
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+  #   user: "root"
   
   front-nginx-vue:
     container_name: nginx-vue
