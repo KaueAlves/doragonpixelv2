@@ -56,7 +56,7 @@
               <div v-for="(atributo,key) in atributos[0]" class="col-2">
                 <div class="mb-3">
                   <label for="nome" class="form-label">{{ key }}</label>
-                  <input type="text" class="form-control" :value="atributo" id="nome" aria-describedby="nomeHelp">
+                  <input type="number" maxlength = "2" min="3" max="99" class="form-control" :value="atributo" id="nome" aria-describedby="nomeHelp">
                 </div>
               </div>
               <!-- DEATH SAVES -->
