@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import Home from './components/Home.vue'
+  import { RouterLink, RouterView } from 'vue-router'
+  import Home from './components/Home.vue'
 </script>
-
 <template>
   <div class="container mb-4 mb-md-0">
-    <div class="row vh-100 d-flex align-items-center">
-      <header class="col-md-6 text-center">
+    <div class="row ">
+      <header class="col-md-6 text-center vh-100 d-flex align-items-center">
         <div class="row ">
           <div class="col-md-8 ms-auto me-auto ">
-            
             <img alt="Doragon Pixel" class="logo ms-auto me-auto mb-4" src="@/assets/pixel/falando-off-export.gif" width="125" height="125" />
             <div class="wrapper">
               <Home msg="Seja bem vindo!" />
