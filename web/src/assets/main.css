@@ -12,6 +12,10 @@ a,
   color: #8100bd;
 }
 
+.white{
+  color: #fff;
+}
+
 @media (hover: hover) {
   a:hover {
     background-color: hsla(226, 100%, 37%, 0.2);
@@ -22,7 +26,7 @@ a,
   }
 }
 
-.bg-default{
+.bg-default,table{
   background: #181818;
 }
 
@@ -30,7 +34,7 @@ a,
   border: 1px solid #EBEBEBA3;
 }
 
-input.form-control,select.form-select{
+input.form-control,select.form-select,textarea{
   background-color: #EBEBEBA3;
   
 }
