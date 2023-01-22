@@ -176,7 +176,7 @@
                       <input class="form-check-input" name="pericias[]" type="checkbox" v-model="this.personagem.pericias"
                         :value="skill" id="flexCheckDefault">
                       <label class="form-check-label" for="flexCheckDefault">
-                        {{ skill.nome }}}
+                        {{ skill.nome }}
                       </label>
                     </div>
                   </div>
@@ -235,6 +235,7 @@
 
 <script lang="ts">
 import jsonSpells from "@/assets/spells.json";
+import jsonSkills from "@/assets/skills.json";
 export default {
   data() {
     return {
@@ -243,96 +244,7 @@ export default {
       magia_selecionada: "",
       magia_aprendida_selecionada: "",
       magia_memorizada_selecionada: "",
-      pericias: [{
-        nome: "Acrobacia",
-        valor: 0,
-        atributo_base: "DEX"
-      },
-      {
-        nome: "Adestrar Animais",
-        valor: 0,
-        atributo_base: "WIS"
-      },
-      {
-        nome: "Arcanismo",
-        valor: 0,
-        atributo_base: "INT"
-      },
-      {
-        nome: "Atletismo",
-        valor: 0,
-        atributo_base: "STR"
-      },
-      {
-        nome: "Enganação",
-        valor: 0,
-        atributo_base: "CAR"
-      },
-      {
-        nome: "História",
-        valor: 0,
-        atributo_base: "INT"
-      },
-      {
-        nome: "Intuição",
-        valor: 0,
-        atributo_base: "SAB"
-      },
-      {
-        nome: "Intimidação",
-        valor: 0,
-        atributo_base: "CAR"
-      },
-      {
-        nome: "Investigação",
-        valor: 0,
-        atributo_base: "INT"
-      },
-      {
-        nome: "Medicina",
-        valor: 0,
-        atributo_base: "SAB"
-      },
-      {
-        nome: "Natureza",
-        valor: 0,
-        atributo_base: "INT"
-      },
-      {
-        nome: "Percepção",
-        valor: 0,
-        atributo_base: "SAB"
-      },
-      {
-        nome: "Atuação",
-        valor: 0,
-        atributo_base: "CAR"
-      },
-      {
-        nome: "Persuasão",
-        valor: 0,
-        atributo_base: "CAR"
-      },
-      {
-        nome: "Religião",
-        valor: 0,
-        atributo_base: "INT"
-      },
-      {
-        nome: "Presdigitação",
-        valor: 0,
-        atributo_base: "DES"
-      },
-      {
-        nome: "Furtividade",
-        valor: 0,
-        atributo_base: "DES"
-      },
-      {
-        nome: "Sobrevivência",
-        valor: 0,
-        atributo_base: "DES"
-      }],
+      pericias: jsonSkills,
       personagem: {
         nome: "",
         nivel: 1,
