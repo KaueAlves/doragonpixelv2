@@ -168,7 +168,7 @@
                 </div>
               </div>
               <!-- pericias -->
-              <div class="col-12">
+              <div class="col-12 mb-4">
                 <div class="row">
                   <p>PERÍCIAS</p>
                   <div v-for="skill in this.pericias" class="form-check col-6">
@@ -176,12 +176,44 @@
                       <input class="form-check-input" name="pericias[]" type="checkbox" v-model="this.personagem.pericias"
                         :value="skill" id="flexCheckDefault">
                       <label class="form-check-label" for="flexCheckDefault">
-                        {{ skill.nome }}
+                        {{ skill.nome }}}
                       </label>
                     </div>
                   </div>
                 </div>
               </div>
+              <!-- MAGIAS -->
+              <div class="col-6 mb-4">
+                <div class="mb-3">
+                  <label for="Magias" class="form-label">Magias Disponiveis</label>
+                  <select name="raca"  v-model="this.magia_selecionada" class="form-select mb-2" aria-label="">
+                    <option  v-for="magia in this.magias" :value="magia.name + ' | ' + magia.level">{{ magia.name }} | lvl {{ magia.level }}</option>
+                  </select>
+                  <button @click.prevent="this.adicionarAprendidas" class="btn w-100">Adicionar</button>
+                </div>
+              </div>
+              <div class="col-6 mb-4">
+                <div class="mb-3">
+                  <label for="Magias Aprendidas" class="form-label">Magias Aprendidas</label>
+                  <select name="magias_aprendidas[]" v-model="this.magia_aprendida_selecionada" class="form-select mb-2" aria-label="">
+                    <option  v-for="magia_aprendida in this.personagem.magia.aprendidas" :value="magia_aprendida">{{ magia_aprendida }}</option>
+                  </select>
+                  <div class="row">
+                    <!-- <div class="col-6"><button @click.prevent="this.adicionarMemorizada" class="btn w-100">Preparar</button></div> -->
+                    <div class="col-12"><button @click.prevent="this.removerAprendidas" class="btn w-100">Remover</button></div>
+                  </div>
+                </div>
+              </div>
+              <!-- PREPARADAS -->
+              <!-- <div class="ms-auto me-auto col-6 mb-4">
+                <div class="mb-3">
+                  <label for="Magias memorizadas" class="form-label">Magias preparadas</label>
+                  <select name="magias_memorizadas[]" v-model="this.magia_memorizada_selecionada" class="form-select mb-2" aria-label="">
+                    <option  v-for="magia_memorizada in this.personagem.magia.memorizadas" :value="magia_memorizada">{{ magia_memorizada }}</option>
+                  </select>
+                  <button @click.prevent="this.removerMemorizada" class="btn w-100">Remover</button>
+                </div>
+              </div> -->
               <div class="col-12 d-flex text-right"><button type="submit" class="ms-auto btn ">Cadastrar</button></div>
             </div>
 
@@ -202,10 +234,15 @@
 </style>
 
 <script lang="ts">
+import jsonSpells from "@/assets/spells.json";
 export default {
   data() {
     return {
       deathSaves: ['STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA'],
+      magias: jsonSpells,
+      magia_selecionada: "",
+      magia_aprendida_selecionada: "",
+      magia_memorizada_selecionada: "",
       pericias: [{
         nome: "Acrobacia",
         valor: 0,
@@ -340,11 +377,29 @@ export default {
             "8":1,
             "9":1,
           },
-          memorizadas:{},
-          aprendidas:{},
+          memorizadas:[],
+          aprendidas:[],
         }
       }
     }
-  }
+  },
+  methods: {
+    adicionarAprendidas(e){
+      e.preventDefault();
+      this.personagem.magia.aprendidas.push(this.magia_selecionada);
+    },
+    removerAprendidas(e){
+      e.preventDefault();
+      this.personagem.magia.aprendidas.pop(this.magia_aprendida_selecionada);
+    },
+    adicionarMemorizada(e){
+      e.preventDefault();
+      this.personagem.magia.memorizadas.push(this.magia_aprendida_selecionada);
+    },
+    removerMemorizada(e){
+      e.preventDefault();
+      this.personagem.magia.memorizadas.pop(this.magia_memorizada_selecionada);
+    },
+  },
 }
 </script>
